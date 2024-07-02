@@ -84,6 +84,10 @@ def run_bayesian_optimization(
 
     return opt, metrics
 
+def to_dense(X):
+    return X.toarray()
+
+from sklearn.preprocessing import FunctionTransformer
 
 def run_gridsearchcv(
     model,
@@ -109,11 +113,12 @@ def run_gridsearchcv(
     # y_train = label_transformer(y_train)
     # y_test = label_transformer(y_test)
     # pipeline = Pipeline([("transformer", TfidfVectorizer()), ("clf", model)])
-    pipeline = Pipeline([("vect", CountVectorizer()), ("tfidf", TfidfTransformer()), ("clf", model)])
+    pipeline = Pipeline([("vect", CountVectorizer()), ("tfidf", TfidfTransformer()), ("to_dense", FunctionTransformer(to_dense)), ("clf", model)])
     if mode == "gpu":
         pipeline = Pipeline(
             [
                 ("vect", HashingVectorizer()),
+                ("to_dense", FunctionTransformer(to_dense)),
                 ("clf", model),
             ]
         )

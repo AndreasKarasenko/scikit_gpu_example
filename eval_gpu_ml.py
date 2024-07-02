@@ -55,7 +55,6 @@ def run_eval(
                     y_test,
                     verbose=args.verbose,
                     n_jobs=args.njobs,
-                    mode="gpu",
                 )
             else:
                 raise ValueError("tuning must be grid ")

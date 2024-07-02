@@ -39,6 +39,9 @@ def summarize_results(mode: str = "all", metric: str = "F1", verbose: bool = Fal
 
     models = os.listdir("results/train/")  # all model dirs
     models.remove("__init__.py")  # except for __init__.py
+    
+    if not os.path.exists("results/overview/"):
+        os.makedirs("results/overview/")
 
     all_results = []
     all_times = []
