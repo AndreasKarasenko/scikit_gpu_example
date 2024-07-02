@@ -25,16 +25,17 @@ n_estimators = 25
 max_depth = 10
 
 # generate synthetic data [ binary classification task ]
-X, y = cuMK ( n_classes = n_classes,
+X, y = cuMK(n_classes = n_classes,
                              n_features = n_features,
                              n_samples = n_samples,
-                             random_state = 0 )
+                             random_state = 0,
+                             )
 
 print(X.shape, y.shape)
 print(type(X))
 print(type(y))
 
-X_train, X_test, y_train, y_test = train_test_split( X, y, random_state = 0 )
+X_train, X_test, y_train, y_test = train_test_split( X, y, random_state = 0, test_size=0.2 )
 
 model = cuRF( max_depth = max_depth,
               n_estimators = n_estimators,
