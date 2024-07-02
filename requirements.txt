@@ -1,0 +1,4 @@
+# see cuml_install.txt
+scikit-learn
+nltk
+scikit-optimize

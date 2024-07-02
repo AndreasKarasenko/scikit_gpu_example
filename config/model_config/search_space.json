@@ -1,0 +1,22 @@
+{
+    "MultinomialNB": {
+        "hyperparameters": {
+            "clf__alpha": [0.3, 0.2, 1e-1, 1e-2, 1e-3, 1e-4]
+        }
+    },
+    "LR":{
+        "hyperparameters":{
+            "clf__penalty": ["l2"],
+            "clf__C": [0.1, 0.3, 0.7, 1.0, 10, 100, 1000],
+            "clf__max_iter": [100, 200, 300, 400, 500]
+        }
+    },
+    "RF": {
+        "hyperparameters": {
+            "clf__n_estimators": [100, 200, 300, 400, 500],
+            "clf__max_features": ["sqrt", "log2"],
+            "clf__max_depth": [5, 10, 15, 20, 25],
+            "clf__min_samples_split": [2, 5, 10]
+        }
+    }
+}

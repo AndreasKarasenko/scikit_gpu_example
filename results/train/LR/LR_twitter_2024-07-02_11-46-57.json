@@ -1,0 +1,104 @@
+{
+    "model": "LR",
+    "dataset": "twitter",
+    "walltime": 16.366028308868408,
+    "metrics": [
+        0.805327868852459,
+        0.8024724818577426,
+        0.8010176989664611,
+        0.805327868852459,
+        "              precision    recall  f1-score   support\n\n           1       0.86      0.90      0.88      1889\n           2       0.62      0.59      0.61       580\n           3       0.77      0.69      0.72       459\n\n    accuracy                           0.81      2928\n   macro avg       0.75      0.73      0.74      2928\nweighted avg       0.80      0.81      0.80      2928\n"
+    ],
+    "best_hyperparameters": {
+        "clf__C": 10,
+        "clf__max_iter": 100,
+        "clf__penalty": "l2",
+        "clf__solver": "lbfgs"
+    },
+    "arguments": {
+        "config_dir": "./config/model_config/search_space.json",
+        "data_dir": "./samples/",
+        "model_dir": "./models/",
+        "optimized_dir": "./config/optimized/",
+        "input_var": "content",
+        "target_var": "label",
+        "verbose": 3,
+        "njobs": -1,
+        "data_config": "./config/data_config/"
+    },
+    "search_space": {
+        "clf__solver": [
+            "lbfgs"
+        ],
+        "clf__penalty": [
+            "l2"
+        ],
+        "clf__C": [
+            0.1,
+            0.3,
+            0.7,
+            1.0,
+            10,
+            100,
+            1000
+        ],
+        "clf__max_iter": [
+            100,
+            200,
+            300,
+            400,
+            500
+        ]
+    },
+    "best_score": 0.7276149689714307,
+    "best_estimator": "Pipeline(steps=[('vect', CountVectorizer()), ('tfidf', TfidfTransformer()),\n                ('clf', LogisticRegression(C=10))])",
+    "best_params": {
+        "clf__C": 10,
+        "clf__max_iter": 100,
+        "clf__penalty": "l2",
+        "clf__solver": "lbfgs"
+    },
+    "scorer": "{'Accuracy': make_scorer(accuracy_score, response_method='predict'), 'Precision': make_scorer(precision_score, response_method='predict', pos_label=None, average=macro), 'Recall': make_scorer(recall_score, response_method='predict', pos_label=None, average=macro), 'F1': make_scorer(f1_score, response_method='predict', pos_label=None, average=macro)}",
+    "refit_time": 1.272711992263794,
+    "mean_fit_time": [
+        0.7269979000091553,
+        0.7505151748657226,
+        0.7413665294647217,
+        0.7282794952392578,
+        0.704496431350708,
+        0.821466588973999,
+        0.8697545051574707,
+        0.8839679718017578,
+        0.8858246326446533,
+        0.8178375720977783,
+        1.037085771560669,
+        1.092604684829712,
+        1.094299602508545,
+        1.1404346466064452,
+        0.9607428550720215,
+        0.9741735935211182,
+        1.0579841136932373,
+        1.0684303283691405,
+        1.0749005317687987,
+        0.9034000396728515,
+        1.7687860488891602,
+        2.035739278793335,
+        2.158761405944824,
+        2.129271364212036,
+        2.08925461769104,
+        2.000036287307739,
+        2.5279989719390867,
+        2.625275468826294,
+        2.571338653564453,
+        2.4263726234436036,
+        1.8702088356018067,
+        2.2386008739471435,
+        2.206649160385132,
+        2.175017070770264,
+        1.6909073829650878
+    ],
+    "multimetric": true,
+    "best_index": 20,
+    "cv": 5,
+    "n_splits": 5
+}
